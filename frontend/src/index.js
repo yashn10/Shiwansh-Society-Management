@@ -8,6 +8,7 @@ import District from "./pages/District";
 import Facebook from "./pages/Facebook";
 import Login from "./pages/Login";
 import Demo from "./pages/Demo";
+import AddSociety from "./pages/AddSociety";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="face" element={<Facebook />} />
           <Route path="login" element={<Login />} />
           <Route path="demo" element={<Demo />} />
+          <Route path="AddSociety" element={<AddSociety />} />
         </Route>
       </Routes>
     </BrowserRouter>
