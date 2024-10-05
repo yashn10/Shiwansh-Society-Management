@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Members = () => {
+
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -15,15 +16,18 @@ const Members = () => {
     userName: "",
     password: "",
   });
+
+
   const handlechange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
 
   const submit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/members", data);
+      const response = await axios.post("http://localhost:8000/member/members", data);
 
       if (response.status === 201) {
         window.alert(response.data.message);
@@ -36,7 +40,9 @@ const Members = () => {
     }
   };
 
+
   return (
+
     <div>
       {/* The outer form tag is redundant, since you already have a form tag inside the card-body. Removed it */}
       <form className="Container text-center">
@@ -267,8 +273,11 @@ const Members = () => {
           </div>
         </div>
       </form>
+
     </div>
+
   );
+
 };
 
 export default Members;
