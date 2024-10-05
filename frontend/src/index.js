@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Country from "./pages/Country";
+import Contact from "./pages/Contact";
 import State from "./pages/State";
 import District from "./pages/District";
 import Facebook from "./pages/Facebook";
@@ -15,7 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="country" element={<Country />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="state" element={<State />} />
           <Route path="district" element={<District />} />
           <Route path="face" element={<Facebook />} />
