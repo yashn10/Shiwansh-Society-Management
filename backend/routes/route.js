@@ -4,6 +4,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Country = require('../models/country');
 const User = require('../models/user');
+const AddSociety=require("../models/AddSociety");
+const NewHouse=require("../models/NewHouse");
+
 
 
 router.post("/country", async (req, res) => {
@@ -129,6 +132,50 @@ router.post("/login", async (req, res) => {
         res.status(500).json({ error: "server error occurs", error });
     }
 })
+
+//////
+router.post("/create",async(req,res)=>{
+    const{SocityName,NoOfHouse,Address,city,pincode}=req.body;
+
+    try{
+        const society=new AddSociety(req.body);
+        const saved=await society.save();
+        if(saved){
+            res.status(201).json({message:"data submited for society"});
+
+        }else{
+            res.status(404).json({error:"error occur in society field"});
+
+        }
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({error:"server error occur",error});
+    }
+});
+
+router.post("/NewHouse",async(req,res)=>{
+    const{SocityNo,BlockNo,HouseType,Details}=req.body;
+
+    try{
+        const NewHouseEntry=new NewHouse(req.body);
+        const saved=await NewHouseEntry.save();
+        if(saved){
+            res.status(201).json({message:"data submited for new house"});
+        }else{
+            res.status(404).json({error:"error occur in new house filed "})
+        }
+
+
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({error:"server error occur"});
+    }
+})
+module.exports=router;
+
+
 
 
 module.exports = router;

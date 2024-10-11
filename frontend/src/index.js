@@ -9,6 +9,8 @@ import Facebook from "./pages/Facebook";
 import Login from "./pages/Login";
 import Demo from "./pages/Demo";
 import AddSociety from "./pages/AddSociety";
+import AddHouse from "./pages/AddHouse"
+import HouseReport from "./pages/HouseReport"
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="demo" element={<Demo />} />
           <Route path="AddSociety" element={<AddSociety />} />
+          <Route path="AddHouse" element={<AddHouse/>} />
+          <Route path="HouseReport" element={<HouseReport/>} />
         </Route>
       </Routes>
     </BrowserRouter>
