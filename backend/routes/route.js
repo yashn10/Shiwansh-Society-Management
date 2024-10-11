@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Country = require('../models/country');
@@ -8,23 +9,16 @@ const AddSociety=require("../models/AddSociety");
 const NewHouse=require("../models/NewHouse");
 
 
+const User = require('./user');
+const Member = require('./member');
+const Login = require('./login');
 
-router.post("/country", async (req, res) => {
-    const { countryname } = req.body;
 
-    try {
-        const user = new Country({ countryname });
-        const saved = await user.save();
-        if (saved) {
-            res.status(201).json({ message: "data submmited" });
-        } else {
-            res.status(404).json({ error: "error occurs" });
-        }
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "server error occurs", error });
-    }
-})
+
+
+router.use('/login', Login);
+router.use('/member', Member);
+router.use('/user', User);
 
 
 router.get("/country", async (req, res) => {
@@ -174,8 +168,3 @@ router.post("/NewHouse",async(req,res)=>{
     }
 })
 module.exports=router;
-
-
-
-
-module.exports = router;
