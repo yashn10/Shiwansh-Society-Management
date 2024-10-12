@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 
-import AddSociety from "./pages/AddSociety";
+import AddSociety from "./components/AddSociety";
 import AddHouse from "./pages/AddHouse"
 import HouseReport from "./pages/HouseReport"
 
