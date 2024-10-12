@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import AddSociety from '../components/AddSociety';
 import AllocateHouse from '../components/Members';
-// import HouseReport from '../components/HouseReport';
-// import AllocateHouse from '../components/AllocateHouse';
+import HouseReport from '../components/HouseReport';
+import AddHouse from '../components/AddHouse';
 // import MemberReport from '../components/MemberReport';
 // import ComplainList from '../components/ComplainList';
 // import Selllist from './Selllist';
@@ -33,10 +33,10 @@ const Adminworks = () => {
         switch (data) {
             case "addsociety":
                 return <AddSociety />;
-            // case "addhouse":
-            //     return <House />;
-            // case "housereport":
-            //     return <HouseReport />;
+            case "addhouse":
+                return <AddHouse />;
+            case "housereport":
+                return <HouseReport />;
             case "allocatehouse":
                 return <AllocateHouse />;
             // case "memberreport":

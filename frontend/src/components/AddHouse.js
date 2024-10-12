@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function AddHome() {
-                
-  const[data,setdata]=useState({SocityNo:"", BlockNo:"", HouseType:"", Details:""})
-  const handlechange=(e)=>{
-    setdata({...data, [e.target.name]: e.target.value})
-   }
 
-  const submit=async(e)=>{
+  const [data, setdata] = useState({ SocityNo: "", BlockNo: "", HouseType: "", Details: "" })
+  const handlechange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value })
+  }
+
+  const submit = async (e) => {
     e.preventDefault();
 
-    try{
-      const response = await axios.post("http://localhost:8000/NewHouse",data);
-      if(response.status === 201){
+    try {
+      const response = await axios.post("http://localhost:8000/NewHouse", data);
+      if (response.status === 201) {
         window.alert(response.data.message);
-      }else{
+      } else {
         window.alert(response.data.error);
       }
-    }catch(error){
-      console.error("Error logging in:",error);
+    } catch (error) {
+      console.error("Error logging in:", error);
       window.alert("error occurs");
     }
   }
@@ -39,29 +39,29 @@ function AddHome() {
               <form className="container text-center">
                 <div className="mb-5">
 
-                  Society :    <select class="form w-25 border-success" name='SocityNo'onChange={handlechange}value={data.SocityNo}>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  Society :    <select class="form w-25 border-success" name='SocityNo' onChange={handlechange} value={data.SocityNo}>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                   </select>
-                  </div>
+                </div>
 
-                
-                
+
+
                 <div className="mt-3" >
-                  Block No : <input type="number" id="noOfHouses border-success"name='BlockNo' onChange={handlechange} value={data.BlockNo}/>
+                  Block No : <input type="number" id="noOfHouses border-success" name='BlockNo' onChange={handlechange} value={data.BlockNo} />
                 </div>
 
                 <div className="mt-4 border-success">
-                  House Type :  <select class="form w-25 border-success" name='HouseType'onChange={handlechange}value={data.HouseType}>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  House Type :  <select class="form w-25 border-success" name='HouseType' onChange={handlechange} value={data.HouseType}>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                   </select>
-                  </div>
+                </div>
 
                 <div className="mt-3">
-                  Details : <input type="text" id="city" name='Details' onChange={handlechange}value={data.Details}/>
+                  Details : <input type="text" id="city" name='Details' onChange={handlechange} value={data.Details} />
                 </div>
 
                 <div className="mt-3 ">

@@ -3,13 +3,11 @@ const router = express.Router();
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Country = require('../models/country');
+// const Country = require('../models/country');
 const User = require('../models/user');
 const AddSociety=require("../models/AddSociety");
 const NewHouse=require("../models/NewHouse");
-
-
-const User = require('./user');
+const Users = require('./user');
 const Member = require('./member');
 const Login = require('./login');
 
@@ -18,7 +16,7 @@ const Login = require('./login');
 
 router.use('/login', Login);
 router.use('/member', Member);
-router.use('/user', User);
+router.use('/user', Users);
 
 
 router.get("/country", async (req, res) => {

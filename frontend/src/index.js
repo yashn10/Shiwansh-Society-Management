@@ -3,11 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import Login from "./pages/Login";
 
 import AddSociety from "./components/AddSociety";
-import AddHouse from "./pages/AddHouse"
-import HouseReport from "./pages/HouseReport"
+
+
+import AddHouse from "./components/AddHouse"
+import HouseReport from "./components/HouseReport"
 
 import Members from "./components/Members";
 import Adminworks from "./pages/Adminworks";
@@ -20,7 +21,6 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
           <Route path="AddSociety" element={<AddSociety />} />
 
           <Route path="AddHouse" element={<AddHouse/>} />
