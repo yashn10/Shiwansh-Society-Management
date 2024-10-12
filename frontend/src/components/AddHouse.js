@@ -12,9 +12,10 @@ function AddHome() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/NewHouse", data);
+      const response = await axios.post("http://localhost:8000/house/NewHouse", data);
       if (response.status === 201) {
         window.alert(response.data.message);
+        window.alert("house added successfully")
       } else {
         window.alert(response.data.error);
       }
@@ -27,7 +28,6 @@ function AddHome() {
     <>
       <div className="row m-3">
         <div className="col-3">
-          <h1>Space for all button</h1>
         </div>
         <div className="col-9">
           <div className="container" style={{ height: "100vh" }}>

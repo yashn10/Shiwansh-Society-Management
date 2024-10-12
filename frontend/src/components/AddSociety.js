@@ -17,7 +17,7 @@ const AddSociety = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/create", data);
+      const response = await axios.post("http://localhost:8000/society/create", data);
       if (response.status === 201) {
         window.alert(response.data.message);
       } else {
@@ -35,7 +35,6 @@ const AddSociety = () => {
 
     <div className="row m-3">
       <div className="col-3">
-        <h1>space for all button</h1>
       </div>
       <div className="col-9">
         <div className="container justify-center" style={{ height: "100vh" }}>
