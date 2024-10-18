@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Country from "./pages/Country";
+import Country from "./pages/Country";a
 import State from "./pages/State";
 import District from "./pages/District";
 import Facebook from "./pages/Facebook";
