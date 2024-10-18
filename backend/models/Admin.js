@@ -1,27 +1,16 @@
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 
-const userSchema = new mongoose.Schema({
-    name: {
+const adminSchema = new mongoose.Schema({
+
+    username: {
         type: String,
         required: true
     },
 
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-
     password: {
-        type: String,
-        required: true,
-        unique: true
-    },
-
-    role: {
         type: String,
         required: true
     },
@@ -33,10 +22,10 @@ const userSchema = new mongoose.Schema({
             }
         }
     ]
+
 })
 
-
-userSchema.pre("save", async function (next) {
+adminSchema.pre("save", async function (next) {
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 12);
     }
@@ -45,14 +34,11 @@ userSchema.pre("save", async function (next) {
 })
 
 
-userSchema.methods.generateAuthToken = async function () {
+adminSchema.methods.generateAuthToken = async function () {
     try {
         const payload = {
-            _id: this._id,
-            name: this.name,
-            email: this.email,
-            password: this.password,
-            role: this.role
+            username: this.username,
+            password: this.password
         };
         let token = jwt.sign(payload, process.env.SECRET_KEY);
         this.tokens = this.tokens.concat({ token: token });
@@ -64,5 +50,6 @@ userSchema.methods.generateAuthToken = async function () {
 }
 
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Admin = mongoose.model("Admin", adminSchema);
+
+module.exports = Admin;
